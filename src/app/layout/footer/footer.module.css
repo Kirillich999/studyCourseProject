@@ -1,0 +1,10 @@
+.footer {
+    display: grid;
+    grid-template-columns: 1fr auto auto;
+    gap: 40px;
+    background-color: var(--purple-color);
+    color: #fff;
+    padding: 25px 30px;
+    font-size: 16px;
+    line-height: 16px;
+}

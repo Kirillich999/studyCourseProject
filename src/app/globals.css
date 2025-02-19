@@ -1,42 +1,26 @@
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --font-family: "Noto Sans", serif;
+  --purple-color: rgb(118, 83, 252);
+  --black-color: rgb(59, 67, 78);
+  --light-black-color: rgb(120, 125, 133);
+  --green-color: rgb(29, 196, 126);
+  --light-green-color: rgb(200, 248, 228);
+  --gray-color:rgb(179, 192, 217);
+  --light-gray-color:rgb(226, 226, 226);
+  --orange-color:rgb(252, 131, 109);
+  --red-color:rgb(222, 0, 0);
+
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-html,
-body {
-  max-width: 100vw;
-  overflow-x: hidden;
-}
-
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-* {
-  box-sizing: border-box;
+*{
   padding: 0;
   margin: 0;
+  box-sizing: border-box;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
+body {
+  font-family: var(--font-family);
+  margin-top: 40px;
+  background-color: rgb(229,229,229);
+  
 }

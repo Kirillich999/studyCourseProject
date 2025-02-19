@@ -1,0 +1,167 @@
+.wrapper {
+
+}
+
+.title {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    justify-items: left;
+    gap: 20px;
+}
+
+.hhtitle {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    justify-items: left;
+    gap: 20px;
+    margin-bottom: 20px;
+
+}
+
+.hh {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr) ;
+    gap: 30px;
+    text-align: center;
+}
+.cardtitle {
+    font-size: 20px;
+    font-weight: 300;
+    line-height: 27px;
+
+}
+
+.hhStatCount {
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 49px; 
+    color: var(--purple-color);
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+.salary {
+    display: grid;
+    grid-column: 2/-1;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.salary > div {
+    border-right: 1px solid rgb(235, 235, 235);
+}
+
+.salary > div:last-child {
+    border-right: none;
+}
+.salaryDesc {
+    font-size: 20px;
+    font-weight: 300;
+    line-height: 27px;
+    margin-top: 10px;
+    margin-bottom: 15px;
+
+}
+.rate {
+    display: grid;
+    grid-template-columns: repeat(3, 20px);
+    gap: 10px;
+    justify-content: center;
+
+}
+
+.filledRate circle {
+    fill: var(--orange-color);
+
+}
+
+
+.advantageWrapper {
+    margin-bottom: 30px;
+
+}
+
+.advantage {
+    display: grid;
+    grid-template-columns: 50px 1fr;
+    gap: 20px 40px;
+}
+
+.advantageTitle {
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 27px;
+    align-self: center;
+
+}
+
+.vline {
+ height: 1px;
+ width: 100%;
+ background-color: rgb(210, 210, 210) ;   
+ transform: rotate(90deg);
+ margin-top: 20px;
+ margin-bottom: 35px;
+}
+
+.seoText h1 {
+    font-size: 26px;
+    font-weight: 500;
+    line-height: 35px
+}
+
+.seoText h2 {
+    font-size: 22px;
+font-weight: 500;
+line-height: 30px;
+margin: 20px 0;
+
+}
+
+.seoText h3 {
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 27px;
+    margin: 20px 0;
+
+}
+
+.seoText h4 {
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 22px;
+
+}
+
+.tag {
+    margin-top: 5px;
+    margin-left: 5px;
+}
+
+@media (max-width: 1200px) {
+    .hh{
+        grid-template-columns: 1fr;
+    }
+    .salary {
+        grid-column: 1/-1;
+    }
+}
+
+@media (max-width: 640px) {
+    .salary {
+        grid-column: 1/-1;
+        grid-template-columns: 1fr ;
+    }
+
+    .salary > div {
+        border-right: none;
+        border-bottom:1px solid rgb(235, 235, 235) ;
+        padding-bottom: 20px;
+        padding-top: 20px;
+    }
+
+    .salary > div:first-child {
+       
+        padding-top: 0px;
+    }
+}

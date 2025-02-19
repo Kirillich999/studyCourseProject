@@ -1,95 +1,56 @@
-import Image from "next/image";
-import styles from "./page.module.css";
 
-export default function Home() {
+import { ARROW_BUTTON_POSITION, Button, BUTTON_VARIANT, H_TAG_VARIANT, Htag, Input, Paragraph, PARAGRAPH_SIZE, Tag, TAG_SIZE, TAG_VARIANT, Textarea } from "./components";
+import { Rating } from "./components/rating/rating";
+import React from "react";
+
+
+// import styles from "./page.module.css";
+
+ function Home() {
+  // const data = await getMenuItem();
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol>
-          <li>
-            Get started by editing <code>src/app/page.tsx</code>.
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.secondary}
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className={styles.footer}>
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+    <>
+      <Htag tag={H_TAG_VARIANT.h1}>Курсы по Photoshop</Htag>
+      <Htag tag={H_TAG_VARIANT.h2}>Вакансии - Photoshop</Htag>
+      <Htag tag={H_TAG_VARIANT.h3}>Преимущества</Htag>
+      <Htag tag={H_TAG_VARIANT.h3}>Курсы</Htag>
+      <Button arrow={ARROW_BUTTON_POSITION.RIGHT} variant={BUTTON_VARIANT.PRIMARY}>Узнать подробнее</Button>
+      <Button arrow={ARROW_BUTTON_POSITION.DOWN} variant={BUTTON_VARIANT.TRANSPARENT}>Читать отзывы</Button>
+      <Paragraph size={PARAGRAPH_SIZE.SMALL}>Мелкий</Paragraph>
+      <Paragraph size={PARAGRAPH_SIZE.MIDDLE}>Средний</Paragraph>
+      <Paragraph size={PARAGRAPH_SIZE.LARGE}>Большой</Paragraph>
+      <Tag variant={TAG_VARIANT.GRAY} size={TAG_SIZE.MIDDLE}>10</Tag>
+      <Tag variant={TAG_VARIANT.GREEN} size={TAG_SIZE.SMALL} >10 000 Р</Tag>
+      <Tag variant={TAG_VARIANT.TRANSPARENT} size={TAG_SIZE.SMALL}>Photoshoop</Tag>
+      <Tag href="https://hh.ru" variant={TAG_VARIANT.RED} size={TAG_SIZE.MIDDLE}>hh.ru</Tag>
+      <Tag variant={TAG_VARIANT.PRIMARY} size={TAG_SIZE.SMALL}>Работа в Photoshoop</Tag>
+      <Rating rating={0} />
+      <Rating rating={2}  isEditable/>
+      <Input/>
+      <Textarea/>
+      
+      
+      
+    </>
   );
 }
+
+
+// export const getMenuItem = async () => {
+//  try {
+//   const firstCategory = 0;
+//   const {data: menu} = await axios.post<IMenuitem[]>(`${process.env.NEXT_PUBLIC_API_BASE_URL}top-page/find`, {firstCategory })
+//   return {
+//       menu
+//   }
+//  }
+//  catch (e) {
+//   if (e instanceof AxiosError) {
+//     throw new Error(e.message)
+//   }
+
+//  }
+// }
+
+
+export default Home

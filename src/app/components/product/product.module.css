@@ -1,0 +1,260 @@
+.product {
+    display: grid;
+    grid-template-columns: 10px
+    [start]
+    70px [logo-end] 30px
+    [title-start] calc(50% - 100px)
+    [middle] 1fr
+    [price-start] auto [price-end] 40px
+    [credit-start] auto [credit-end] 40px
+    [rate-start] auto [rate-end] auto
+    [end];
+   margin-top: 30px;
+}
+
+.logo {
+    grid-column: start/logo-end;
+    grid-row: 1/-1;
+}
+
+.title, .tag {
+    grid-column: title-start/middle;
+}
+
+.price, .priceTitle {
+    grid-column:  price-start/price-end;
+}
+
+.credit, .creditTitle {
+    grid-column: credit-start/credit-end;
+}
+
+.rating, .rateTitle {
+    grid-column: rate-start/end ;
+
+}
+
+.title {
+    align-self: center;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 27px;
+}
+
+.tag div {
+    margin-bottom: 5px;
+}
+
+.price, .credit {
+    align-self: center;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 27px;
+}
+
+.rating {
+    align-self: center;
+}
+
+.hr {
+    width: 100%;
+    height: 1px;
+    background-color: rgb(235, 235, 235);
+    grid-column: start/end;
+    margin: 20px 0;
+}
+
+.textAbout {
+    grid-column: start/end;
+font-size: 16px;
+font-weight: 400;
+line-height: 24px;
+}
+
+.features{
+    grid-column: start/middle;
+    margin-top:15px ;
+
+
+}
+
+.char {
+    display: grid;
+   grid-template-columns: auto 1fr auto; 
+   gap: 15px;
+   margin-bottom: 15px;
+   padding-right: 60px;
+   align-items: baseline;
+}
+
+.charName {
+
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 22px;
+}
+
+.charDots {
+ border-bottom: 2px dotted var(--gray-color);
+}
+
+.charValue {
+    font-size: 16px;
+    line-height: 22px;
+}
+
+.advBlock {
+    grid-column: middle/end;
+}
+
+.hr2 {
+    width: 100%;
+    height: 1px;
+    background-color: rgb(235, 235, 235);
+    grid-column: start/end;
+    margin: 20px 0;
+}
+
+.advTitle {
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 22px;
+}
+
+.advDesc {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 22px;
+}
+
+.adv {
+    padding-left: 15px;
+    border-left:  3px solid var(--green-color);
+    margin-top: 14px;
+
+}
+
+.disAdvantages {
+    padding-left: 15px;
+    border-left:  3px solid var(--green-color);
+    margin-top: 20px;
+
+}
+
+.actions {
+    grid-column: start/end;
+}
+
+.reviewBtn {
+    
+margin-left: 10px;
+}
+
+
+
+
+/* .featuresTitle p{
+    border-bottom: dotted 1px;
+
+    
+} */
+
+@media screen and (max-width: 1300px) {
+    .product{
+        grid-template-columns: 70px 30px auto 40px auto 40px 1fr;
+        grid-template-areas:
+        "logo . title title title title title"
+        "logo . tags tags tags tags tags "
+        "price price price . credit . rating "
+        "priceTitle priceTitle priceTitle . creditTitle . rateTitle "
+        "hr hr hr hr hr hr hr"
+        "desc desc desc desc desc desc desc"
+        "features features features features features features features"
+        "advBlock advBlock advBlock advBlock advBlock advBlock advBlock"
+        "hr2 hr2 hr2 hr2 hr2 hr2 hr2"
+        "actions actions actions actions actions actions actions"
+        ;
+    }
+    
+    .logo {
+        grid-area: logo;
+    }
+
+    .title {
+        grid-area: title;
+    }
+    
+    .tag {
+        grid-area: tags;
+    }
+
+    .price {
+        grid-area: price;
+    }
+
+    .priceTitle {
+        grid-area: priceTitle;
+    }
+
+    .credit {
+        grid-area: credit;
+    }
+
+    .creditTitle {
+        grid-area: creditTitle;
+    }
+
+    .rating {
+        grid-area: rating;
+    }
+
+    .rateTitle {
+        grid-area: rateTitle;
+    }
+
+    .hr {
+        grid-area: hr;
+    }
+
+    .textAbout {
+        grid-area: desc;
+    }
+
+    .features {
+        grid-area: features;
+    }
+    
+    .advBlock {
+        grid-area: advBlock;
+    }
+
+    .textAbout {
+        grid-area: desc;
+    }
+
+    .hr {
+        grid-area: hr2;
+    }
+      
+    
+    
+    .actions {
+        grid-area: actions;
+    }
+}
+
+.reviewWrapper {
+    margin-top: -10px;
+    transition: all .3s ease-in ;
+}
+
+.reviewOpened {
+    height: max-content;
+    padding: 30px;
+}
+
+.reviewClosed {
+    height: 0;
+    overflow: hidden;
+    padding: 0;
+}
