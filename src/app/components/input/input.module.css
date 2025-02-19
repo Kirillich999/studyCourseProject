@@ -10,3 +10,22 @@
 .input::placeholder {
     color: var(--light-black-color);
 }
+
+.wrapper {
+position: relative;
+}
+
+.error {
+    position: absolute;
+    top: -20px;
+    left: 0;
+    color: red;
+    font-size: 14px;
+
+
+}
+.inputError {
+    outline-color: red;
+    border: 2px solid red;
+
+}

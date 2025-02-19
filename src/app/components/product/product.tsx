@@ -15,6 +15,7 @@ import { ARROW_BUTTON_POSITION, BUTTON_VARIANT } from "../button/button.enum";
 import { declensionWords } from "@/app/helper/declension-words.helper";
 import Image from "next/image";
 import { Review } from "../review/review";
+import { ReviewForm } from "../review-form/review-form";
 
 export function Product({product, className, ...props}:IProductProps) {
 
@@ -163,6 +164,7 @@ export function Product({product, className, ...props}:IProductProps) {
                 { product?.reviews?.map((r) => (
                     <Review review={r} key={r._id}/>
                 ))}
+                <ReviewForm productId={product._id}/>
             </Card>
         </>
 

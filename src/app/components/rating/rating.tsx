@@ -1,12 +1,14 @@
 "use client"
-import React, { JSX, useEffect, useState, KeyboardEvent } from "react";
+import React, { JSX, useEffect, useState, KeyboardEvent, forwardRef, ForwardedRef } from "react";
 import { IRatingProps } from "./rating.type";
 import StarIcon from  "./star.svg"
 import styles from "./rating.module.css"
 import cn from "classnames"
 
 
-export function Rating ({isEditable, rating, setRating, ...props}:IRatingProps) {
+
+// eslint-disable-next-line react/display-name
+export const Rating = forwardRef(({isEditable, rating, setRating, ...props}:IRatingProps, ref: ForwardedRef <HTMLDivElement>) => {
 
     const [arrayStar, setArrayStar] = useState<JSX.Element[]>(new Array(5).fill(<></>))
 
@@ -56,11 +58,11 @@ export function Rating ({isEditable, rating, setRating, ...props}:IRatingProps) 
     
     return (
         <div
-        
+        ref={ref}
         {...props}>
             {arrayStar.map((star: JSX.Element, idx: number)=> <React.Fragment key={idx}> {star}</React.Fragment>  )}
 
         </div>
     )
 
-}
+})
