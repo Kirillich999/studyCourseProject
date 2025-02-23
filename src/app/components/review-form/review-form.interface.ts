@@ -1,6 +1,10 @@
 export interface IReviewForm {
     name: string;
     title: string;
-    desc: string;
+    description: string;
     rating: number;
+}
+
+export interface IReviewResponse {
+    message:string
 }

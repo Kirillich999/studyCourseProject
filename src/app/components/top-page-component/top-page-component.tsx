@@ -16,7 +16,9 @@ import { Sort } from "../sort/sort"
 import { sortReducer } from "./sort-reducer"
 import { SORT_VARIANT } from "../sort/sort.enum"
 import { Product } from "../product/product"
-export function TopPageComponent({firstCategory, products, page }: ITopPageComponent) {
+
+
+export function TopPageComponent({products, page }: ITopPageComponent) {
     const [{products: sortedProducts, sort}, dispatch] = useReducer(sortReducer, {products, sort: SORT_VARIANT.RATING})
     const setSort = (sort: SORT_VARIANT) => {
         dispatch({type: sort})
@@ -30,7 +32,7 @@ export function TopPageComponent({firstCategory, products, page }: ITopPageCompo
             </div>
             <div>
                 { sortedProducts?.map((p) => (
-                    <Product key={p._id} product={p}/>
+                    <Product layout key={p._id} product={p}/>
                 ) )}
             </div>
                 

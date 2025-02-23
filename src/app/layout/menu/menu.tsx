@@ -8,12 +8,41 @@ import { useContext } from "react";
 import { firstLevelMenu } from "@/app/helper/menu.helper";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import {motion} from "framer-motion"
 
 
 
 export function Menu() {
     const {menu, firstCategory, setMenu} = useContext(AppContext);
     const pathname = usePathname();
+
+    const variants = {
+        visible: {
+            marginBottom: 5,
+            marginTop:5,
+            transition: {
+                when:"beforeChildren",
+                staggerChildren: 0.1
+
+            }
+        },
+        hidden: {
+            marginBottom: 5,  
+        }
+    }
+
+
+    const variantsChildren = {
+        visible: {
+           opacity:1,
+           height:29,
+        },
+        hidden: {
+            opacity:0,
+            height:0
+        }
+    }
+
     const openSecondLevelMenu = (secondCategory: string) => {
         const updatedMenu = menu.map((m) => {
             if (m._id.secondCategory === secondCategory) {
@@ -65,11 +94,16 @@ export function Menu() {
                                    {m._id.secondCategory}
                                     </div> 
 
-                                    <div className={cn(styles.secondLevelBlock, {
-                                        [styles.secondLevelBlockActive] : m?.isOpened
+                                    <motion.div 
+                                    layout
+                                    initial = {m?.isOpened ? "visible" : "hidden"}
+                                    animate = {m?.isOpened ? "visible" : "hidden"}
+                                    variants={variants}
+                                    className={cn(styles.secondLevelBlock, {
+                                        
                                     })}>
                                         {buildThirdLevelMenu(m.pages, menuitem.route)}
-                                    </div>
+                                    </motion.div>
                             </div>
                         )
                     })
@@ -84,13 +118,17 @@ export function Menu() {
             {
                 pages.map((p) => {
                     return (
-                        <Link className={cn(styles.thirdlevel, {
+                      <motion.div key={p._id} variants={variantsChildren}>
+                          <Link className={cn(styles.thirdlevel, {
                             [styles.thirdlevelActive]: pathname === `/${route}/${p.alias}`
                         })} 
                         key={p._id} 
                         href={`/${route}/${p.alias}`}>
                         {p.category}
                         </Link>
+
+
+                      </motion.div>
                     )
                 })
             }</>

@@ -1,5 +1,5 @@
 "use client"
-import React, { useState } from "react";
+import React, { ForwardedRef, forwardRef, useState } from "react";
 import { IProductProps } from "./product.type";
 import { Card } from "../card/card";
 import cn from "classnames"
@@ -16,8 +16,10 @@ import { declensionWords } from "@/app/helper/declension-words.helper";
 import Image from "next/image";
 import { Review } from "../review/review";
 import { ReviewForm } from "../review-form/review-form";
+import {motion} from "framer-motion"
 
-export function Product({product, className, ...props}:IProductProps) {
+// eslint-disable-next-line react/display-name
+export const Product = motion(forwardRef(({product, className, ...props}:IProductProps, ref: ForwardedRef<HTMLDivElement>) => {
 
     const [isOpenReview, setIsOpenReview] = useState<boolean>(false);
     const onOpenReview = () => {
@@ -25,7 +27,7 @@ export function Product({product, className, ...props}:IProductProps) {
 
     }
     return(
-        <>
+        <div ref={ref}>
         <Card
         color="white"
         className={cn(styles.product, className ?? "")}
@@ -166,7 +168,7 @@ export function Product({product, className, ...props}:IProductProps) {
                 ))}
                 <ReviewForm productId={product._id}/>
             </Card>
-        </>
+        </div>
 
      )
-}
+}))

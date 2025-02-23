@@ -8,6 +8,7 @@
     color: var(--light-black-color);
     cursor: pointer;
     margin-top: 20px;
+    white-space: nowrap;
    
 
 }
@@ -50,10 +51,6 @@ fill: var(--purple-color);
 .secondLevelBlock:last-child {
     margin-bottom: 30px;
 
-}
-
-.secondLevelBlock {
-    display: none;
 }
 
 .secondLevelBlockActive {
