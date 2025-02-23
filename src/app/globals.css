@@ -1,11 +1,11 @@
 :root {
   --font-family: "Noto Sans", serif;
-  --purple-color: rgb(118, 83, 252);
+  --purple-color: #6141df;
   --black-color: rgb(59, 67, 78);
-  --light-black-color: rgb(120, 125, 133);
-  --green-color: rgb(29, 196, 126);
+  --light-black-color: #62666c;
+  --green-color: #127a4f;
   --light-green-color: rgb(200, 248, 228);
-  --gray-color:rgb(179, 192, 217);
+  --gray-color:#62666c;
   --light-gray-color:rgb(226, 226, 226);
   --orange-color:rgb(252, 131, 109);
   --red-color:rgb(222, 0, 0);

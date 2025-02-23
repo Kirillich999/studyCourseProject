@@ -57,6 +57,13 @@ export function Menu() {
     }
 
 
+    const openSecondLevelMenuKey = (e: KeyboardEvent, secondCategory: string) => {
+            if (e.code === "Enter" || e.code === "Space" ) {
+            e.preventDefault();
+                openSecondLevelMenu(secondCategory)
+            }
+    }
+
     const buildFirstLevelMenu = () => {
         return (
             <>
@@ -89,7 +96,10 @@ export function Menu() {
                         const isOpenedMenu = m.pages.map(p => p.alias).includes(pathname.split("/")[2])
                         if (isOpenedMenu) m.isOpened = true;
                         return (
-                            <div key={m._id.secondCategory}>
+                            <div
+                            tabIndex={0}
+                            onKeyDown={(e) => openSecondLevelMenuKey(e, m._id.secondCategory)}
+                             key={m._id.secondCategory}>
                                    <div onClick={()=> openSecondLevelMenu(m._id.secondCategory)} className={cn(styles.secondLevel)}>
                                    {m._id.secondCategory}
                                     </div> 
@@ -102,7 +112,7 @@ export function Menu() {
                                     className={cn(styles.secondLevelBlock, {
                                         
                                     })}>
-                                        {buildThirdLevelMenu(m.pages, menuitem.route)}
+                                        {buildThirdLevelMenu(m.pages, menuitem.route, m.isOpened ?? false )}
                                     </motion.div>
                             </div>
                         )
@@ -112,14 +122,18 @@ export function Menu() {
         )
     }
 
-    const buildThirdLevelMenu = (pages: IPageItem[], route:string) => {
+    const buildThirdLevelMenu = (pages: IPageItem[], route:string, isOpen: boolean) => {
         return (
             <>
             {
                 pages.map((p) => {
                     return (
-                      <motion.div key={p._id} variants={variantsChildren}>
-                          <Link className={cn(styles.thirdlevel, {
+                      <motion.div
+                       key={p._id} 
+                       variants={variantsChildren}>
+                          <Link
+                          tabIndex={isOpen ? 0 : -1}
+                          className={cn(styles.thirdlevel, {
                             [styles.thirdlevelActive]: pathname === `/${route}/${p.alias}`
                         })} 
                         key={p._id} 
