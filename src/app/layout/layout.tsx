@@ -13,9 +13,9 @@ export function Layout ({children}: ILayoutProps) {
             <Header className={cn(styles.header)} />
             <Sidebar className={cn(styles.sidebar)} />
 
-            <div className={cn(styles.body)} >
+            <main role="main" className={cn(styles.body)} >
                 {children}
-            </div>
+            </main >
             < Footer className={cn(styles.footer)}/>
         </div>
 

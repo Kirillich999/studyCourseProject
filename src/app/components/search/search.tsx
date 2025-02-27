@@ -28,7 +28,7 @@ const onChange = (e: ChangeEvent<HTMLInputElement>) => {
 
 }
     return (
-        <div className={cn(styles.search,className ?? "")} {...props}>
+        <form role="search" className={cn(styles.search,className ?? "")} {...props}>
             <Input 
             value={search} 
             onChange={onChange} 
@@ -36,11 +36,14 @@ const onChange = (e: ChangeEvent<HTMLInputElement>) => {
             placeholder="Поиск..."
             onKeyDown={handleKeyDown}/>
 
-            <Button onClick={getSearch} 
+            <Button 
+            onClick={getSearch} 
             className={cn(styles.button)} 
-            variant={BUTTON_VARIANT.PRIMARY}>
+            variant={BUTTON_VARIANT.PRIMARY}
+            aria-label="Поиск по сайту"
+            >
                 <SearchIcon/>
             </Button>
-        </div>
+        </form>
     )
 }

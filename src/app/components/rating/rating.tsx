@@ -38,6 +38,7 @@ export const Rating = forwardRef(({isEditable, rating, setRating, ...props}:IRat
 
     const onPressRating = (e: KeyboardEvent<SVGElement>, rating: number) => {
         if(setRating && isEditable && e.code === "Space" ) {
+            e.preventDefault()
             setRating(rating)
 
         }

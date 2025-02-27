@@ -16,6 +16,8 @@ import { Sort } from "../sort/sort"
 import { sortReducer } from "./sort-reducer"
 import { SORT_VARIANT } from "../sort/sort.enum"
 import { Product } from "../product/product"
+import Head from "next/head"
+
 
 
 export function TopPageComponent({products, page }: ITopPageComponent) {
@@ -24,10 +26,23 @@ export function TopPageComponent({products, page }: ITopPageComponent) {
         dispatch({type: sort})
     }
     return(
+        <>
+        <Head>
+        <title> {page?.title}</title>
+        <meta name="description" content={page?.metaDescription}/> 
+        <meta name="og: title" content={page?.metaTitle}/> 
+        <meta name="og: description" content={page?.metaDescription}/> 
+        </Head>
+
         <div className={cn(styles.wrapper)}>
             <div className={cn(styles.title)}>
             <Htag tag={H_TAG_VARIANT.h1}>Курсы по Photoshop</Htag>
-            <Tag size={TAG_SIZE.MIDDLE} variant={TAG_VARIANT.GRAY}>{products.length}</Tag>
+            <Tag 
+            size={TAG_SIZE.MIDDLE} 
+            variant={TAG_VARIANT.GRAY}
+            aria-label={`${products?.length} курсов на странице`}
+            >
+                {products.length}</Tag>
             <Sort sort={sort} setSort={setSort}/>
             </div>
             <div>
@@ -128,5 +143,7 @@ export function TopPageComponent({products, page }: ITopPageComponent) {
                             ))
                         }
         </div>
+        
+        </>
     )
 }

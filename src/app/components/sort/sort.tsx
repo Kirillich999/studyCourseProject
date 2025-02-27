@@ -18,23 +18,24 @@ export function Sort({setSort, sort, className, ...props}:ISortProps) {
 
     return (
         <div className={cn(className ?? "", styles.sort )} {...props}>
-           <span  className={cn({
+           <button tabIndex={0} className={cn({
             [styles.active]: sort === SORT_VARIANT.RATING
            })}
            onClick={sortRating}
+           aria-selected = {sort === SORT_VARIANT.RATING}
            >
             <SortIcon className={cn(styles.sortIcon)}/> По рейтингу
-           </span>
+           </button>
 
 
 
-           <span  className={cn({
+           <button tabIndex={0}  className={cn({
             [styles.active]: sort === SORT_VARIANT.PRICE
            })}
            onClick={priceSort}
            >
             <SortIcon className={cn(styles.sortIcon)}/> По цене
-           </span>
+           </button>
 
         </div>
     )

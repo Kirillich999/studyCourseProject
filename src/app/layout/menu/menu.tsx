@@ -151,8 +151,8 @@ export function Menu() {
     }
     
     return (
-        <>
+        <nav role="navigation">
        {buildFirstLevelMenu()}
-        </>
+        </nav>
     )
 }
